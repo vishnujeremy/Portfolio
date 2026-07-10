@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishnu Prabhakaran P — UI/UX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* 60% */
+    --paper: #F1EFE6;
+    --paper-2: #E9E6D9;
+    /* 30% */
+    --ink: #1B1C18;
+    --ink-soft: #5D5B50;
+    /* 10% */
+    --accent: #E29A3B;
+    --accent-soft: #F4E3C6;
+
+    --line: #D8D4C4;
+    --white: #FFFFFF;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+
+    --max: 1080px;
+    --gutter: clamp(20px, 5vw, 64px);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent); color:var(--ink);}
+
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--gutter);}
+
+  /* ---------- utility: mono eyebrow / status dot ---------- */
+  .eyebrow{
+    display:flex; align-items:center; gap:8px;
+    font-family:var(--font-mono); font-size:12px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-soft);
+    margin-bottom:18px;
+  }
+  .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); flex-shrink:0;}
+
+  .tag{
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:.04em;
+    padding:5px 10px; border:1px solid var(--line); border-radius:3px;
+    color:var(--ink-soft); white-space:nowrap;
+  }
+  .tag.accent{ border-color:var(--accent); color:#8a5a11; background:var(--accent-soft); }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(241,239,230,.88); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .logo{font-family:var(--font-mono); font-size:14px; font-weight:500; letter-spacing:.02em;}
+  .logo span{color:var(--accent);}
+  .navlinks{display:flex; gap:32px; font-family:var(--font-mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;}
+  .navlinks a{position:relative; color:var(--ink-soft); transition:color .2s;}
+  .navlinks a:hover{color:var(--ink);}
+  .navlinks a::after{
+    content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px;
+    background:var(--accent); transition:width .25s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .navlinks{display:none;}
+  @media(min-width:720px){.navlinks{display:flex;}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:110px 0 90px; position:relative;}
+  .hero .version{
+    font-family:var(--font-mono); font-size:12px; color:var(--ink-soft);
+    letter-spacing:.1em; margin-bottom:26px; display:inline-flex; align-items:center; gap:10px;
+  }
+  .hero .version .pill{
+    border:1px solid var(--accent); color:#8a5a11; background:var(--accent-soft);
+    padding:3px 9px; border-radius:20px; font-size:11px;
+  }
+  h1.name{
+    font-family:var(--font-display); font-weight:600;
+    font-size:clamp(40px, 7vw, 76px); line-height:1.02; letter-spacing:-.02em;
+  }
+  h1.name em{font-style:normal; color:var(--ink-soft);}
+  .role{
+    font-family:var(--font-display); font-weight:500;
+    font-size:clamp(18px, 2.4vw, 26px); color:var(--ink-soft); margin-top:14px;
+  }
+  .role .accent-word{color:var(--accent);}
+  .lede{
+    max-width:620px; margin-top:26px; font-size:16.5px; line-height:1.7; color:var(--ink-soft);
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:10px; margin-top:34px;
+  }
+
+  /* dimension / annotation line — signature motif */
+  .spec-line{
+    display:flex; align-items:center; gap:10px; margin:56px 0 0;
+    font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); letter-spacing:.06em;
+  }
+  .spec-line .rule{flex:1; height:1px; background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 10px);}
+
+  /* ---------- section shell ---------- */
+  section{padding:88px 0;}
+  section.bordered{border-top:1px solid var(--line);}
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom:48px; gap:24px; flex-wrap:wrap;
+  }
+  h2.h-title{
+    font-family:var(--font-display); font-weight:600;
+    font-size:clamp(26px, 3.4vw, 36px); letter-spacing:-.01em;
+  }
+  .h-note{font-family:var(--font-mono); font-size:12px; color:var(--ink-soft);}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr; gap:40px;}
+  @media(min-width:800px){.about-grid{grid-template-columns:1fr 1fr;}}
+  .about-text p{font-size:16px; line-height:1.85; color:var(--ink-soft);}
+  .about-facts{
+    border:1px solid var(--line); border-radius:6px; padding:26px;
+    background:var(--white);
+  }
+  .fact-row{
+    display:flex; justify-content:space-between; padding:12px 0;
+    border-bottom:1px solid var(--line); font-size:14px;
+  }
+  .fact-row:last-child{border-bottom:none;}
+  .fact-row .k{font-family:var(--font-mono); color:var(--ink-soft); text-transform:uppercase; font-size:11.5px; letter-spacing:.06em;}
+  .fact-row .v{font-weight:500; text-align:right;}
+
+  /* ---------- experience ---------- */
+  .exp-card{
+    border:1px solid var(--line); border-radius:6px; background:var(--white);
+    padding:34px; position:relative;
+  }
+  .exp-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:12px; margin-bottom:22px; padding-bottom:22px; border-bottom:1px dashed var(--line);
+  }
+  .exp-role{font-family:var(--font-display); font-weight:600; font-size:21px;}
+  .exp-company{color:var(--ink-soft); font-size:14.5px; margin-top:4px;}
+  .exp-dates{
+    font-family:var(--font-mono); font-size:12px; text-align:right;
+    color:var(--ink-soft);
+  }
+  .exp-dates .status{
+    display:inline-flex; align-items:center; gap:6px; margin-top:6px;
+    color:#8a5a11; font-weight:500;
+  }
+  ul.bullets{list-style:none;}
+  ul.bullets li{
+    position:relative; padding-left:20px; font-size:15px; line-height:1.75;
+    color:var(--ink-soft); margin-bottom:12px;
+  }
+  ul.bullets li::before{
+    content:'—'; position:absolute; left:0; color:var(--accent); font-family:var(--font-mono);
+  }
+  ul.bullets li:last-child{margin-bottom:0;}
+  ul.bullets li b{color:var(--ink); font-weight:600;}
+
+  /* ---------- projects ---------- */
+  .proj-grid{display:grid; grid-template-columns:1fr; gap:28px;}
+  @media(min-width:800px){.proj-grid{grid-template-columns:1fr 1fr;}}
+  .proj-card{
+    border:1px solid var(--line); border-radius:6px; background:var(--white);
+    padding:30px; display:flex; flex-direction:column; height:100%;
+  }
+  .proj-tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
+  .proj-title{font-family:var(--font-display); font-weight:600; font-size:20px; margin-bottom:6px;}
+  .proj-sub{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; margin-bottom:18px;}
+  .proj-card ul.bullets{margin-top:auto; padding-top:6px;}
+  .proj-modules{
+    display:flex; flex-wrap:wrap; gap:6px; margin:16px 0 20px;
+  }
+  .module-chip{
+    font-family:var(--font-mono); font-size:10.8px; color:var(--ink-soft);
+    background:var(--paper-2); border-radius:3px; padding:4px 8px;
+  }
+  .proj-note{
+    margin-top:24px; padding-top:18px; border-top:1px dashed var(--line);
+    font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft);
+  }
+
+  /* ---------- skills ---------- */
+  .skill-groups{display:grid; grid-template-columns:1fr; gap:32px;}
+  @media(min-width:720px){.skill-groups{grid-template-columns:repeat(3,1fr);}}
+  .skill-group h3{
+    font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase;
+    letter-spacing:.08em; color:var(--ink-soft); margin-bottom:16px;
+    padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .skill-pills{display:flex; flex-wrap:wrap; gap:8px;}
+
+  /* ---------- education ---------- */
+  .edu-item{
+    display:grid; grid-template-columns:1fr; gap:6px;
+    padding:26px 0; border-bottom:1px solid var(--line);
+  }
+  .edu-item:first-child{padding-top:0;}
+  .edu-item:last-child{border-bottom:none;}
+  @media(min-width:680px){.edu-item{grid-template-columns:1fr auto; align-items:baseline; gap:20px;}}
+  .edu-title{font-family:var(--font-display); font-weight:600; font-size:18px;}
+  .edu-sub{color:var(--ink-soft); font-size:14px; margin-top:4px;}
+  .edu-date{font-family:var(--font-mono); font-size:12px; color:var(--ink-soft); white-space:nowrap;}
+
+  .lang-row{display:flex; gap:40px; margin-top:8px; flex-wrap:wrap;}
+  .lang-item{font-size:14.5px;}
+  .lang-item b{font-family:var(--font-display); display:block; font-size:16px; margin-bottom:2px;}
+  .lang-item span{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft);}
+
+  /* ---------- footer / contact ---------- */
+  footer{
+    background:var(--ink); color:var(--paper); padding:90px 0 40px; margin-top:20px;
+  }
+  .foot-head{
+    font-family:var(--font-display); font-weight:600;
+    font-size:clamp(30px, 5vw, 52px); line-height:1.08; max-width:620px;
+  }
+  .foot-head .accent-word{color:var(--accent);}
+  .foot-sub{color:#B9B7A9; margin-top:18px; max-width:480px; font-size:15px; line-height:1.7;}
+  .foot-links{
+    display:flex; flex-wrap:wrap; gap:14px; margin-top:40px;
+  }
+  .foot-links a{
+    font-family:var(--font-mono); font-size:12.5px; letter-spacing:.04em;
+    border:1px solid #3A392F; padding:11px 18px; border-radius:4px;
+    transition:border-color .2s, color .2s; color:var(--paper);
+  }
+  .foot-links a:hover{border-color:var(--accent); color:var(--accent);}
+  .foot-bottom{
+    margin-top:80px; padding-top:24px; border-top:1px solid #3A392F;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-family:var(--font-mono); font-size:11px; color:#8B896F; letter-spacing:.04em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">VP<span>·</span>P</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="tag accent">Open to work</div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="version">
+      <span>PORTFOLIO</span>
+      <span class="pill">v1.6</span>
+      <span>· UI/UX Designer, based in Cuddalore, Tamil Nadu</span>
+    </div>
+    <h1 class="name">Vishnu Prabhakaran <em>P.</em></h1>
+    <p class="role">Designing clear, scalable interfaces for <span class="accent-word">B2B SaaS</span> products.</p>
+    <p class="lede">
+      Results-driven UI/UX Designer with hands-on experience shipping intuitive digital products
+      end to end — from wireframes and user flows to pixel-perfect, developer-ready Figma prototypes —
+      inside fast-moving Agile teams.
+    </p>
+    <div class="hero-meta">
+      <span class="tag">Figma</span>
+      <span class="tag">Design Systems</span>
+      <span class="tag">UX Research</span>
+      <span class="tag">Interaction Design</span>
+      <span class="tag">HTML &amp; CSS (Basic)</span>
+    </div>
+    <div class="spec-line">
+      <span>vishnu02042001@email.com</span>
+      <span class="rule"></span>
+      <span>+91 90425 59699</span>
+      <span class="rule"></span>
+      <span>linkedin.com/in/vishnuprabhakaran</span>
+      <span class="rule"></span>
+      <span>behance.net/vishnuprabhak6</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="bordered wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>About</div>
+        <h2 class="h-title">Summary</h2>
+      </div>
+      <span class="h-note">01 year 4+ months experience</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I turn complex, role-based user needs into clean, accessible interfaces — moving from
+          low-fidelity wireframes to high-fidelity Figma prototypes without losing sight of the
+          person actually using the product. My background is B2B SaaS: dashboards, monitoring
+          tools, and field-operations software where clarity and information hierarchy matter more
+          than decoration.
+        </p>
+        <p style="margin-top:18px;">
+          I work closely with product managers and engineers inside Agile sprints, and I care about
+          the handoff as much as the design itself — annotated specs, consistent components, and
+          documentation that reduces back-and-forth with developers.
+        </p>
+      </div>
+      <div class="about-facts">
+        <div class="fact-row"><span class="k">Role</span><span class="v">UI/UX Designer</span></div>
+        <div class="fact-row"><span class="k">Experience</span><span class="v">1.6 years</span></div>
+        <div class="fact-row"><span class="k">Focus</span><span class="v">B2B SaaS Products</span></div>
+        <div class="fact-row"><span class="k">Location</span><span class="v">Cuddalore, Tamil Nadu</span></div>
+        <div class="fact-row"><span class="k">Languages</span><span class="v">English, Tamil</span></div>
+        <div class="fact-row"><span class="k">Core tool</span><span class="v">Figma</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="bordered wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Experience</div>
+        <h2 class="h-title">Where I've worked</h2>
+      </div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-top">
+        <div>
+          <div class="exp-role">UI/UX Designer</div>
+          <div class="exp-company">Emayam Technologies Pvt. Ltd. — Chennai, Tamil Nadu</div>
+        </div>
+        <div class="exp-dates">
+          Mar 2025 — Present
+          <div class="status"><span class="dot"></span>Current role</div>
+        </div>
+      </div>
+      <ul class="bullets">
+        <li>Owned end-to-end UI/UX design across <b>3 live B2B SaaS products</b> — FSM Dashboard, Employee Monitoring Application, and POS Application — from wireframe to developer-ready Figma handoff.</li>
+        <li>Collaborated with Product Managers and engineers in Agile sprints; took part in design reviews, sprint planning, and daily stand-ups to deliver on schedule.</li>
+        <li>Designed role-specific interfaces for multiple user types — <b>field agents, managers, HR, admins, cashiers</b> — ensuring each persona accessed only relevant data.</li>
+        <li>Built and maintained reusable <b>Figma component libraries</b> — cards, data tables, status badges, navigation patterns, and form elements — keeping visual consistency across all 3 products.</li>
+        <li>Performed competitor benchmarking (Teramind, Zoho POS, FSM platforms) to identify UX gaps and inform design direction.</li>
+        <li>Delivered annotated Figma handoff specs with spacing, typography, and interaction details — reducing developer clarification requests.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="bordered wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Projects</div>
+        <h2 class="h-title">Selected work</h2>
+      </div>
+      <span class="h-note">2 of 3 products detailed below</span>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-tags">
+          <span class="tag accent">B2B SaaS</span>
+          <span class="tag">Web &amp; Mobile</span>
+        </div>
+        <div class="proj-title">Field Service Management (FSM) Dashboard</div>
+        <div class="proj-sub">Field agents &amp; managers · 6+ modules</div>
+        <div class="proj-modules">
+          <span class="module-chip">Live Tracking &amp; Map View</span>
+          <span class="module-chip">Beat Plan &amp; Tour Planning</span>
+          <span class="module-chip">Task Management</span>
+          <span class="module-chip">Visit Scheduling</span>
+          <span class="module-chip">Customer Mgmt</span>
+          <span class="module-chip">Product Mgmt</span>
+        </div>
+        <ul class="bullets">
+          <li>Led end-to-end UX design of an FSM platform, from stakeholder interviews to responsive high-fidelity Figma prototypes.</li>
+          <li>Designed an intuitive map-based live tracking interface so managers can monitor agent locations, visit status, and route progress in real time.</li>
+        </ul>
+      </div>
+      <div class="proj-card">
+        <div class="proj-tags">
+          <span class="tag accent">B2B SaaS</span>
+          <span class="tag">Web Application</span>
+        </div>
+        <div class="proj-title">Employee Monitoring Dashboard</div>
+        <div class="proj-sub">Employees, managers &amp; HR/admins</div>
+        <div class="proj-modules">
+          <span class="module-chip">Screen &amp; Activity Monitoring</span>
+          <span class="module-chip">Attendance &amp; Time Tracking</span>
+          <span class="module-chip">Productivity Reports</span>
+          <span class="module-chip">Asset Management</span>
+        </div>
+        <ul class="bullets">
+          <li>Contributed role-specific dashboard screens presenting complex monitoring data through charts, KPI cards, and status tags for fast scanning.</li>
+          <li>Applied RBAC-aware layouts with clear visual hierarchy across data-heavy screens.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="proj-note">+ POS Application — third live product designed at Emayam Technologies, from wireframe through Figma handoff.</div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="bordered wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Skills</div>
+        <h2 class="h-title">Tools &amp; methods</h2>
+      </div>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Design Tools</h3>
+        <div class="skill-pills">
+          <span class="tag">Figma</span>
+          <span class="tag">Adobe XD</span>
+          <span class="tag">Adobe Illustrator</span>
+          <span class="tag">Adobe Photoshop</span>
+          <span class="tag">Balsamiq</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Process &amp; Methods</h3>
+        <div class="skill-pills">
+          <span class="tag">Wireframing</span>
+          <span class="tag">Prototyping</span>
+          <span class="tag">User Research</span>
+          <span class="tag">Usability Testing</span>
+          <span class="tag">Heuristic Evaluation</span>
+          <span class="tag">User Personas</span>
+          <span class="tag">Journey Mapping</span>
+          <span class="tag">Information Arch.</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Systems &amp; Handoff</h3>
+        <div class="skill-pills">
+          <span class="tag">Design Systems</span>
+          <span class="tag">Interaction Design</span>
+          <span class="tag">Responsive Design</span>
+          <span class="tag">Design Handoff</span>
+          <span class="tag">User Flows</span>
+          <span class="tag">HTML &amp; CSS (Basic)</span>
+          <span class="tag">Python (Basic)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="bordered wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Education</div>
+        <h2 class="h-title">Education &amp; certification</h2>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-title">UI/UX Designer Mentorship Program Certification</div>
+        <div class="edu-sub">Dementee Academy, Pondicherry · 4-month internship</div>
+      </div>
+      <div class="edu-date">March 2024</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-title">Bachelor of Engineering — Electronics &amp; Communication (ECE)</div>
+        <div class="edu-sub">CK College of Engineering and Technology, Cuddalore · CGPA 8.25</div>
+      </div>
+      <div class="edu-date">Aug 2022</div>
+    </div>
+
+    <div class="lang-row">
+      <div class="lang-item"><b>English</b><span>Professional Proficiency</span></div>
+      <div class="lang-item"><b>Tamil</b><span>Native</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#8B896F;"><span class="dot"></span>Contact</div>
+    <h2 class="foot-head">Let's design something <span class="accent-word">worth using.</span></h2>
+    <p class="foot-sub">Open to UI/UX roles and freelance collaborations — reach out through any of the links below.</p>
+    <div class="foot-links">
+      <a href="mailto:vishnu02042001@email.com">vishnu02042001@email.com</a>
+      <a href="tel:+919042559699">+91 90425 59699</a>
+      <a href="https://www.linkedin.com/in/vishnuprabhakaran" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.behance.net/vishnuprabhak6" target="_blank" rel="noopener">Behance</a>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Vishnu Prabhakaran P.</span>
+      <span>Cuddalore, Tamil Nadu — 607 105</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
