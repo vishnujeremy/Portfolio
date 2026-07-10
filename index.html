@@ -4,253 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vishnu Prabhakaran P — UI/UX Designer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    /* 60% */
-    --paper: #F1EFE6;
-    --paper-2: #E9E6D9;
-    /* 30% */
-    --ink: #1B1C18;
-    --ink-soft: #5D5B50;
-    /* 10% */
-    --accent: #E29A3B;
-    --accent-soft: #F4E3C6;
-
-    --line: #D8D4C4;
-    --white: #FFFFFF;
-
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
-
-    --max: 1080px;
-    --gutter: clamp(20px, 5vw, 64px);
-  }
-
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--font-body);
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  ::selection{background:var(--accent); color:var(--ink);}
-
-  a{color:inherit; text-decoration:none;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 var(--gutter);}
-
-  /* ---------- utility: mono eyebrow / status dot ---------- */
-  .eyebrow{
-    display:flex; align-items:center; gap:8px;
-    font-family:var(--font-mono); font-size:12px; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--ink-soft);
-    margin-bottom:18px;
-  }
-  .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); flex-shrink:0;}
-
-  .tag{
-    font-family:var(--font-mono); font-size:11.5px; letter-spacing:.04em;
-    padding:5px 10px; border:1px solid var(--line); border-radius:3px;
-    color:var(--ink-soft); white-space:nowrap;
-  }
-  .tag.accent{ border-color:var(--accent); color:#8a5a11; background:var(--accent-soft); }
-
-  /* ---------- nav ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(241,239,230,.88); backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  nav.wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    height:64px;
-  }
-  .logo{font-family:var(--font-mono); font-size:14px; font-weight:500; letter-spacing:.02em;}
-  .logo span{color:var(--accent);}
-  .navlinks{display:flex; gap:32px; font-family:var(--font-mono); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase;}
-  .navlinks a{position:relative; color:var(--ink-soft); transition:color .2s;}
-  .navlinks a:hover{color:var(--ink);}
-  .navlinks a::after{
-    content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px;
-    background:var(--accent); transition:width .25s ease;
-  }
-  .navlinks a:hover::after{width:100%;}
-  .navlinks{display:none;}
-  @media(min-width:720px){.navlinks{display:flex;}}
-
-  /* ---------- hero ---------- */
-  .hero{padding:110px 0 90px; position:relative;}
-  .hero .version{
-    font-family:var(--font-mono); font-size:12px; color:var(--ink-soft);
-    letter-spacing:.1em; margin-bottom:26px; display:inline-flex; align-items:center; gap:10px;
-  }
-  .hero .version .pill{
-    border:1px solid var(--accent); color:#8a5a11; background:var(--accent-soft);
-    padding:3px 9px; border-radius:20px; font-size:11px;
-  }
-  h1.name{
-    font-family:var(--font-display); font-weight:600;
-    font-size:clamp(40px, 7vw, 76px); line-height:1.02; letter-spacing:-.02em;
-  }
-  h1.name em{font-style:normal; color:var(--ink-soft);}
-  .role{
-    font-family:var(--font-display); font-weight:500;
-    font-size:clamp(18px, 2.4vw, 26px); color:var(--ink-soft); margin-top:14px;
-  }
-  .role .accent-word{color:var(--accent);}
-  .lede{
-    max-width:620px; margin-top:26px; font-size:16.5px; line-height:1.7; color:var(--ink-soft);
-  }
-  .hero-meta{
-    display:flex; flex-wrap:wrap; gap:10px; margin-top:34px;
-  }
-
-  /* dimension / annotation line — signature motif */
-  .spec-line{
-    display:flex; align-items:center; gap:10px; margin:56px 0 0;
-    font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); letter-spacing:.06em;
-  }
-  .spec-line .rule{flex:1; height:1px; background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 10px);}
-
-  /* ---------- section shell ---------- */
-  section{padding:88px 0;}
-  section.bordered{border-top:1px solid var(--line);}
-  .section-head{
-    display:flex; align-items:baseline; justify-content:space-between;
-    margin-bottom:48px; gap:24px; flex-wrap:wrap;
-  }
-  h2.h-title{
-    font-family:var(--font-display); font-weight:600;
-    font-size:clamp(26px, 3.4vw, 36px); letter-spacing:-.01em;
-  }
-  .h-note{font-family:var(--font-mono); font-size:12px; color:var(--ink-soft);}
-
-  /* ---------- about ---------- */
-  .about-grid{display:grid; grid-template-columns:1fr; gap:40px;}
-  @media(min-width:800px){.about-grid{grid-template-columns:1fr 1fr;}}
-  .about-text p{font-size:16px; line-height:1.85; color:var(--ink-soft);}
-  .about-facts{
-    border:1px solid var(--line); border-radius:6px; padding:26px;
-    background:var(--white);
-  }
-  .fact-row{
-    display:flex; justify-content:space-between; padding:12px 0;
-    border-bottom:1px solid var(--line); font-size:14px;
-  }
-  .fact-row:last-child{border-bottom:none;}
-  .fact-row .k{font-family:var(--font-mono); color:var(--ink-soft); text-transform:uppercase; font-size:11.5px; letter-spacing:.06em;}
-  .fact-row .v{font-weight:500; text-align:right;}
-
-  /* ---------- experience ---------- */
-  .exp-card{
-    border:1px solid var(--line); border-radius:6px; background:var(--white);
-    padding:34px; position:relative;
-  }
-  .exp-top{
-    display:flex; justify-content:space-between; align-items:flex-start;
-    flex-wrap:wrap; gap:12px; margin-bottom:22px; padding-bottom:22px; border-bottom:1px dashed var(--line);
-  }
-  .exp-role{font-family:var(--font-display); font-weight:600; font-size:21px;}
-  .exp-company{color:var(--ink-soft); font-size:14.5px; margin-top:4px;}
-  .exp-dates{
-    font-family:var(--font-mono); font-size:12px; text-align:right;
-    color:var(--ink-soft);
-  }
-  .exp-dates .status{
-    display:inline-flex; align-items:center; gap:6px; margin-top:6px;
-    color:#8a5a11; font-weight:500;
-  }
-  ul.bullets{list-style:none;}
-  ul.bullets li{
-    position:relative; padding-left:20px; font-size:15px; line-height:1.75;
-    color:var(--ink-soft); margin-bottom:12px;
-  }
-  ul.bullets li::before{
-    content:'—'; position:absolute; left:0; color:var(--accent); font-family:var(--font-mono);
-  }
-  ul.bullets li:last-child{margin-bottom:0;}
-  ul.bullets li b{color:var(--ink); font-weight:600;}
-
-  /* ---------- projects ---------- */
-  .proj-grid{display:grid; grid-template-columns:1fr; gap:28px;}
-  @media(min-width:800px){.proj-grid{grid-template-columns:1fr 1fr;}}
-  .proj-card{
-    border:1px solid var(--line); border-radius:6px; background:var(--white);
-    padding:30px; display:flex; flex-direction:column; height:100%;
-  }
-  .proj-tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
-  .proj-title{font-family:var(--font-display); font-weight:600; font-size:20px; margin-bottom:6px;}
-  .proj-sub{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.05em; margin-bottom:18px;}
-  .proj-card ul.bullets{margin-top:auto; padding-top:6px;}
-  .proj-modules{
-    display:flex; flex-wrap:wrap; gap:6px; margin:16px 0 20px;
-  }
-  .module-chip{
-    font-family:var(--font-mono); font-size:10.8px; color:var(--ink-soft);
-    background:var(--paper-2); border-radius:3px; padding:4px 8px;
-  }
-  .proj-note{
-    margin-top:24px; padding-top:18px; border-top:1px dashed var(--line);
-    font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft);
-  }
-
-  /* ---------- skills ---------- */
-  .skill-groups{display:grid; grid-template-columns:1fr; gap:32px;}
-  @media(min-width:720px){.skill-groups{grid-template-columns:repeat(3,1fr);}}
-  .skill-group h3{
-    font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase;
-    letter-spacing:.08em; color:var(--ink-soft); margin-bottom:16px;
-    padding-bottom:10px; border-bottom:1px solid var(--line);
-  }
-  .skill-pills{display:flex; flex-wrap:wrap; gap:8px;}
-
-  /* ---------- education ---------- */
-  .edu-item{
-    display:grid; grid-template-columns:1fr; gap:6px;
-    padding:26px 0; border-bottom:1px solid var(--line);
-  }
-  .edu-item:first-child{padding-top:0;}
-  .edu-item:last-child{border-bottom:none;}
-  @media(min-width:680px){.edu-item{grid-template-columns:1fr auto; align-items:baseline; gap:20px;}}
-  .edu-title{font-family:var(--font-display); font-weight:600; font-size:18px;}
-  .edu-sub{color:var(--ink-soft); font-size:14px; margin-top:4px;}
-  .edu-date{font-family:var(--font-mono); font-size:12px; color:var(--ink-soft); white-space:nowrap;}
-
-  .lang-row{display:flex; gap:40px; margin-top:8px; flex-wrap:wrap;}
-  .lang-item{font-size:14.5px;}
-  .lang-item b{font-family:var(--font-display); display:block; font-size:16px; margin-bottom:2px;}
-  .lang-item span{font-family:var(--font-mono); font-size:11.5px; color:var(--ink-soft);}
-
-  /* ---------- footer / contact ---------- */
-  footer{
-    background:var(--ink); color:var(--paper); padding:90px 0 40px; margin-top:20px;
-  }
-  .foot-head{
-    font-family:var(--font-display); font-weight:600;
-    font-size:clamp(30px, 5vw, 52px); line-height:1.08; max-width:620px;
-  }
-  .foot-head .accent-word{color:var(--accent);}
-  .foot-sub{color:#B9B7A9; margin-top:18px; max-width:480px; font-size:15px; line-height:1.7;}
-  .foot-links{
-    display:flex; flex-wrap:wrap; gap:14px; margin-top:40px;
-  }
-  .foot-links a{
-    font-family:var(--font-mono); font-size:12.5px; letter-spacing:.04em;
-    border:1px solid #3A392F; padding:11px 18px; border-radius:4px;
-    transition:border-color .2s, color .2s; color:var(--paper);
-  }
-  .foot-links a:hover{border-color:var(--accent); color:var(--accent);}
-  .foot-bottom{
-    margin-top:80px; padding-top:24px; border-top:1px solid #3A392F;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-    font-family:var(--font-mono); font-size:11px; color:#8B896F; letter-spacing:.04em;
-  }
-</style>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
@@ -260,7 +14,7 @@
     <div class="navlinks">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
+      <a href="projects.html">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
@@ -375,49 +129,68 @@
         <div class="eyebrow"><span class="dot"></span>Projects</div>
         <h2 class="h-title">Selected work</h2>
       </div>
-      <span class="h-note">2 of 3 products detailed below</span>
+      <span class="h-note">4 case studies</span>
     </div>
     <div class="proj-grid">
-      <div class="proj-card">
+      <a class="proj-card" href="projects/field-force-management.html">
         <div class="proj-tags">
           <span class="tag accent">B2B SaaS</span>
           <span class="tag">Web &amp; Mobile</span>
         </div>
-        <div class="proj-title">Field Service Management (FSM) Dashboard</div>
-        <div class="proj-sub">Field agents &amp; managers · 6+ modules</div>
+        <div class="proj-title">Field Force Management Platform</div>
+        <div class="proj-sub">Field agents &amp; managers · 19 modules</div>
         <div class="proj-modules">
-          <span class="module-chip">Live Tracking &amp; Map View</span>
-          <span class="module-chip">Beat Plan &amp; Tour Planning</span>
-          <span class="module-chip">Task Management</span>
-          <span class="module-chip">Visit Scheduling</span>
-          <span class="module-chip">Customer Mgmt</span>
-          <span class="module-chip">Product Mgmt</span>
+          <span class="module-chip">Live Tracking</span>
+          <span class="module-chip">Beat &amp; Tour Plan</span>
+          <span class="module-chip">Orders</span>
+          <span class="module-chip">Payments Collection</span>
         </div>
-        <ul class="bullets">
-          <li>Led end-to-end UX design of an FSM platform, from stakeholder interviews to responsive high-fidelity Figma prototypes.</li>
-          <li>Designed an intuitive map-based live tracking interface so managers can monitor agent locations, visit status, and route progress in real time.</li>
-        </ul>
-      </div>
-      <div class="proj-card">
+        <div class="proj-arrow">View case study →</div>
+      </a>
+      <a class="proj-card" href="projects/employee-monitoring.html">
         <div class="proj-tags">
           <span class="tag accent">B2B SaaS</span>
           <span class="tag">Web Application</span>
         </div>
-        <div class="proj-title">Employee Monitoring Dashboard</div>
+        <div class="proj-title">Employee Monitoring &amp; Productivity Platform</div>
         <div class="proj-sub">Employees, managers &amp; HR/admins</div>
         <div class="proj-modules">
-          <span class="module-chip">Screen &amp; Activity Monitoring</span>
-          <span class="module-chip">Attendance &amp; Time Tracking</span>
-          <span class="module-chip">Productivity Reports</span>
-          <span class="module-chip">Asset Management</span>
+          <span class="module-chip">Activity Monitoring</span>
+          <span class="module-chip">Productivity Analytics</span>
+          <span class="module-chip">KPI Management</span>
         </div>
-        <ul class="bullets">
-          <li>Contributed role-specific dashboard screens presenting complex monitoring data through charts, KPI cards, and status tags for fast scanning.</li>
-          <li>Applied RBAC-aware layouts with clear visual hierarchy across data-heavy screens.</li>
-        </ul>
-      </div>
+        <div class="proj-arrow">View case study →</div>
+      </a>
+      <a class="proj-card" href="projects/pos-application.html">
+        <div class="proj-tags">
+          <span class="tag accent">B2B SaaS</span>
+          <span class="tag">Admin Dashboard</span>
+        </div>
+        <div class="proj-title">Enterprise POS Application</div>
+        <div class="proj-sub">Retail, warehouse &amp; multi-branch ops</div>
+        <div class="proj-modules">
+          <span class="module-chip">Billing &amp; Sales</span>
+          <span class="module-chip">Inventory</span>
+          <span class="module-chip">Warehouse Mgmt</span>
+        </div>
+        <div class="proj-arrow">View case study →</div>
+      </a>
+      <a class="proj-card" href="projects/ecommerce-platform.html">
+        <div class="proj-tags">
+          <span class="tag accent">B2B SaaS</span>
+          <span class="tag">Omnichannel Commerce</span>
+        </div>
+        <div class="proj-title">E-Commerce Management Platform</div>
+        <div class="proj-sub">Storefront + admin dashboard</div>
+        <div class="proj-modules">
+          <span class="module-chip">Order Management</span>
+          <span class="module-chip">Procurement</span>
+          <span class="module-chip">Shipping &amp; Logistics</span>
+        </div>
+        <div class="proj-arrow">View case study →</div>
+      </a>
     </div>
-    <div class="proj-note">+ POS Application — third live product designed at Emayam Technologies, from wireframe through Figma handoff.</div>
+    <div class="proj-note"><a href="projects.html" style="color:var(--accent);">View all projects in detail →</a></div>
   </section>
 
   <!-- SKILLS -->
