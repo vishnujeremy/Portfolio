@@ -75,6 +75,33 @@ nav.wrap{
 .navlinks{display:none;}
 @media(min-width:720px){.navlinks{display:flex;}}
 
+/* ---------- mobile nav ---------- */
+.nav-right{display:flex; align-items:center; gap:14px;}
+.menu-btn{
+  display:flex; flex-direction:column; justify-content:center; gap:4px;
+  width:32px; height:32px; background:none; border:none; cursor:pointer; padding:0;
+}
+@media(min-width:720px){.menu-btn{display:none;}}
+.menu-btn span{display:block; width:20px; height:1.5px; background:var(--ink); transition:transform .25s ease, opacity .25s ease;}
+.menu-btn.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg);}
+.menu-btn.open span:nth-child(2){opacity:0;}
+.menu-btn.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg);}
+
+.mobile-drawer{
+  display:none; flex-direction:column;
+  position:fixed; top:64px; left:0; right:0; bottom:0; z-index:49;
+  background:var(--paper); padding:32px var(--gutter);
+  overflow-y:auto;
+}
+.mobile-drawer.open{display:flex;}
+@media(min-width:720px){.mobile-drawer{display:none !important;}}
+.mobile-drawer a{
+  font-family:var(--font-display); font-size:26px; font-weight:600;
+  padding:16px 0; border-bottom:1px solid var(--line); color:var(--ink);
+}
+.mobile-drawer a.active{color:var(--accent);}
+body.nav-locked{overflow:hidden;}
+
 /* ---------- hero ---------- */
 .hero{padding:110px 0 90px; position:relative;}
 .hero .version{

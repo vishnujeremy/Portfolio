@@ -12,16 +12,27 @@
   <nav class="wrap">
     <div class="logo">VP<span>·</span>P</div>
     <div class="navlinks">
-      <a href="../index.html#about">About</a>
+<a href="../index.html#about">About</a>
       <a href="../index.html#experience">Experience</a>
       <a href="../projects.html" class="active">Projects</a>
       <a href="../index.html#skills">Skills</a>
       <a href="../index.html#education">Education</a>
       <a href="../index.html#contact">Contact</a>
     </div>
-    <div class="tag accent">Open to work</div>
+    <div class="nav-right">
+      <div class="tag accent">Open to work</div>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
   </nav>
 </header>
+  <div class="mobile-drawer" id="mobileDrawer">
+<a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../projects.html" class="active">Projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#education">Education</a>
+      <a href="../index.html#contact">Contact</a>
+  </div>
 
 <main>
   <!-- HERO -->
@@ -237,5 +248,19 @@
   </div>
 </footer>
 
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const drawer = document.getElementById('mobileDrawer');
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    drawer.classList.toggle('open');
+    document.body.classList.toggle('nav-locked');
+  });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menuBtn.classList.remove('open');
+    drawer.classList.remove('open');
+    document.body.classList.remove('nav-locked');
+  }));
+</script>
 </body>
 </html>
