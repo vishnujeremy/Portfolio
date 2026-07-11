@@ -140,8 +140,8 @@ h1.name em{font-style:normal; color:var(--ink-soft);}
 .spec-line .rule{flex:1; height:1px; min-width:20px; background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 10px);}
 
 /* ---------- section shell ---------- */
-section{padding:64px 0;}
-section.bordered{border-top:1px solid var(--line); margin-top:64px;}
+section{padding-top:64px; padding-bottom:64px;}
+section.bordered{border-top:1px solid var(--line); margin-top:64px; padding-top:88px;}
 .section-head{
   display:flex; align-items:baseline; justify-content:space-between;
   margin-bottom:48px; gap:24px; flex-wrap:wrap;
