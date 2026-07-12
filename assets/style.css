@@ -493,6 +493,8 @@ h1.hero-h1 .accent-word{color:var(--accent);}
 .btn-solid:hover{background:var(--accent);}
 .btn-outline{border:1px solid var(--line); color:var(--ink);}
 .btn-outline:hover{border-color:var(--accent); color:var(--accent);}
+.btn-outline-dark{border:1px solid #2C2B24; color:var(--paper);}
+.btn-outline-dark:hover{border-color:var(--accent); color:var(--accent);}
 
 /* =======================================================
    ANIMATION LAYER
