@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<header>
+<header class="pill-nav">
   <nav class="wrap">
-    <div class="logo">VP<span>·</span>P</div>
+    <a class="logo" href="index.html">VP<span>·</span>P</a>
     <div class="navlinks">
-<a href="#about">About</a>
+      <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="projects.html">Projects</a>
       <a href="#skills">Skills</a>
@@ -26,47 +26,74 @@
   </nav>
 </header>
   <div class="mobile-drawer" id="mobileDrawer">
-<a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="projects.html">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="projects.html">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
   </div>
 
 <main>
 
   <!-- HERO -->
   <section class="hero wrap">
-    <div class="version">
-      <span>PORTFOLIO</span>
-      <span class="pill">v1.6</span>
-      <span>· UI/UX Designer, based in Cuddalore, Tamil Nadu</span>
+    <div class="hero-eyebrow">
+      <span class="status-badge">
+        <svg viewBox="0 0 100 100">
+          <path id="circlePath" fill="none" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"/>
+          <text font-family="IBM Plex Mono" font-size="7.6" letter-spacing="1.5" fill="var(--ink-soft)">
+            <textPath href="#circlePath">AVAILABLE FOR WORK • UI/UX DESIGNER • </textPath>
+          </text>
+        </svg>
+        <span class="badge-core">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+        </span>
+      </span>
+      <span class="hi">Hello, I'm</span>
     </div>
-    <h1 class="name">Vishnu Prabhakaran <em>P.</em></h1>
-    <p class="role">Designing clear, scalable interfaces for <span class="accent-word">B2B SaaS</span> products.</p>
-    <p class="lede">
-      Results-driven UI/UX Designer with hands-on experience shipping intuitive digital products
-      end to end — from wireframes and user flows to pixel-perfect, developer-ready Figma prototypes —
-      inside fast-moving Agile teams.
+    <h1 class="hero-h1">Vishnu<br>UI/<span class="accent-word">UX</span> Designer</h1>
+    <p class="lede" style="margin-top:28px;">
+      A B2B SaaS product designer based in Cuddalore, India. I turn complex enterprise
+      workflows — dashboards, field operations, retail systems — into interfaces people
+      can actually use, from wireframe to developer-ready Figma handoff.
     </p>
-    <div class="hero-meta">
-      <span class="tag">Figma</span>
-      <span class="tag">Design Systems</span>
-      <span class="tag">UX Research</span>
-      <span class="tag">Interaction Design</span>
-      <span class="tag">HTML &amp; CSS (Basic)</span>
+    <div class="hero-meta" style="margin-top:30px;">
+      <a href="projects.html" class="btn btn-solid">View my work →</a>
+      <a href="#contact" class="btn btn-outline">Let's talk</a>
     </div>
-    <div class="spec-line">
-      <span>vishnu02042001@email.com</span>
-      <span class="rule"></span>
-      <span>+91 90425 59699</span>
-      <span class="rule"></span>
-      <span>https://www.linkedin.com/in/vishnu-prabhakaran-p-b2217a224/</span>
-      <span class="rule"></span>
-      <span>behance.net/vishnuprabhak6</span>
+
+    <div class="stat-row">
+      <div class="stat-item">
+        <div class="stat-num">1.6</div>
+        <div class="stat-label">Years experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">04</div>
+        <div class="stat-label">Enterprise SaaS platforms shipped</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">60+</div>
+        <div class="stat-label">Modules designed end-to-end</div>
+      </div>
     </div>
   </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>B2B SaaS <span class="dim">✦</span></span>
+      <span>Design Systems <span class="dim">✦</span></span>
+      <span>Figma <span class="dim">✦</span></span>
+      <span>Enterprise UX <span class="dim">✦</span></span>
+      <span>Dashboards <span class="dim">✦</span></span>
+      <span>B2B SaaS <span class="dim">✦</span></span>
+      <span>Design Systems <span class="dim">✦</span></span>
+      <span>Figma <span class="dim">✦</span></span>
+      <span>Enterprise UX <span class="dim">✦</span></span>
+      <span>Dashboards <span class="dim">✦</span></span>
+    </div>
+  </div>
 
   <!-- ABOUT -->
   <section id="about" class="bordered wrap">
@@ -98,7 +125,7 @@
         <div class="fact-row"><span class="k">Focus</span><span class="v">B2B SaaS Products</span></div>
         <div class="fact-row"><span class="k">Location</span><span class="v">Cuddalore, Tamil Nadu</span></div>
         <div class="fact-row"><span class="k">Languages</span><span class="v">English, Tamil</span></div>
-        <div class="fact-row"><span class="k">Core tool</span><span class="v">Figma,Adobe Photoshop,Adobe Illustrator</span></div>
+        <div class="fact-row"><span class="k">Core tool</span><span class="v">Figma, Photoshop, Illustrator</span></div>
       </div>
     </div>
   </section>
@@ -133,75 +160,85 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="bordered wrap">
+  <!-- PROCESS -->
+  <section class="bordered wrap">
     <div class="section-head">
       <div>
-        <div class="eyebrow"><span class="dot"></span>Projects</div>
-        <h2 class="h-title">Selected work</h2>
+        <div class="eyebrow"><span class="dot"></span>Process</div>
+        <h2 class="h-title">How I work</h2>
       </div>
-      <span class="h-note">4 case studies</span>
+      <span class="h-note">the same 4 stages, every project</span>
     </div>
-    <div class="proj-grid">
-      <a class="proj-card" href="projects/field-force-management.html">
-        <div class="proj-tags">
-          <span class="tag accent">B2B SaaS</span>
-          <span class="tag">Web &amp; Mobile</span>
+    <div class="process-grid">
+      <div class="process-card dark">
+        <div class="pc-num">01</div>
+        <div>
+          <div class="pc-title">Research</div>
+          <div class="pc-desc">Stakeholder interviews, workflow mapping, competitor benchmarking before any screen gets drawn.</div>
         </div>
-        <div class="proj-title">Field Force Management Platform</div>
-        <div class="proj-sub">Field agents &amp; managers · 19 modules</div>
-        <div class="proj-modules">
-          <span class="module-chip">Live Tracking</span>
-          <span class="module-chip">Beat &amp; Tour Plan</span>
-          <span class="module-chip">Orders</span>
-          <span class="module-chip">Payments Collection</span>
+      </div>
+      <div class="process-card">
+        <div class="pc-num">02</div>
+        <div>
+          <div class="pc-title">Design</div>
+          <div class="pc-desc">Low-fidelity wireframes through to high-fidelity, role-specific Figma screens.</div>
         </div>
-        <div class="proj-arrow">View case study →</div>
-      </a>
-      <a class="proj-card" href="projects/employee-monitoring.html">
-        <div class="proj-tags">
-          <span class="tag accent">B2B SaaS</span>
-          <span class="tag">Web Application</span>
+      </div>
+      <div class="process-card">
+        <div class="pc-num">03</div>
+        <div>
+          <div class="pc-title">Systemize</div>
+          <div class="pc-desc">Reusable components, tokens, and patterns so the product stays consistent as it scales.</div>
         </div>
-        <div class="proj-title">Employee Monitoring &amp; Productivity Platform</div>
-        <div class="proj-sub">Employees, managers &amp; HR/admins</div>
-        <div class="proj-modules">
-          <span class="module-chip">Activity Monitoring</span>
-          <span class="module-chip">Productivity Analytics</span>
-          <span class="module-chip">KPI Management</span>
+      </div>
+      <div class="process-card">
+        <div class="pc-num">04</div>
+        <div>
+          <div class="pc-title">Handoff</div>
+          <div class="pc-desc">Annotated specs with spacing, typography, and interaction detail — built to reduce back-and-forth.</div>
         </div>
-        <div class="proj-arrow">View case study →</div>
-      </a>
-      <a class="proj-card" href="projects/pos-application.html">
-        <div class="proj-tags">
-          <span class="tag accent">B2B SaaS</span>
-          <span class="tag">Admin Dashboard</span>
-        </div>
-        <div class="proj-title">Enterprise POS Application</div>
-        <div class="proj-sub">Retail, warehouse &amp; multi-branch ops</div>
-        <div class="proj-modules">
-          <span class="module-chip">Billing &amp; Sales</span>
-          <span class="module-chip">Inventory</span>
-          <span class="module-chip">Warehouse Mgmt</span>
-        </div>
-        <div class="proj-arrow">View case study →</div>
-      </a>
-      <a class="proj-card" href="projects/ecommerce-platform.html">
-        <div class="proj-tags">
-          <span class="tag accent">B2B SaaS</span>
-          <span class="tag">Omnichannel Commerce</span>
-        </div>
-        <div class="proj-title">E-Commerce Management Platform</div>
-        <div class="proj-sub">Storefront + admin dashboard</div>
-        <div class="proj-modules">
-          <span class="module-chip">Order Management</span>
-          <span class="module-chip">Procurement</span>
-          <span class="module-chip">Shipping &amp; Logistics</span>
-        </div>
-        <div class="proj-arrow">View case study →</div>
-      </a>
+      </div>
     </div>
-    <div class="proj-note"><a href="projects.html" style="color:var(--accent);">View all projects in detail →</a></div>
+  </section>
+
+  <!-- SELECTED WORK (dark) -->
+  <section class="work-dark">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow"><span class="dot"></span>Projects</div>
+          <h2 class="h-title">Selected work</h2>
+        </div>
+        <span class="h-note">4 case studies</span>
+      </div>
+      <div class="work-grid">
+        <a class="work-tile" href="projects/field-force-management.html">
+          <div class="wt-index">01 / 04 — B2B SaaS, Web &amp; Mobile</div>
+          <div class="wt-visual"><div class="grid-lines"></div></div>
+          <div class="wt-title">Field Force Management Platform</div>
+          <div class="wt-tags"><span>Live Tracking</span><span>Beat &amp; Tour Plan</span><span>19 modules</span></div>
+        </a>
+        <a class="work-tile" href="projects/employee-monitoring.html">
+          <div class="wt-index">02 / 04 — B2B SaaS, Web App</div>
+          <div class="wt-visual"><div class="grid-lines"></div></div>
+          <div class="wt-title">Employee Monitoring &amp; Productivity Platform</div>
+          <div class="wt-tags"><span>Activity Monitoring</span><span>Productivity Analytics</span><span>KPI Mgmt</span></div>
+        </a>
+        <a class="work-tile" href="projects/pos-application.html">
+          <div class="wt-index">03 / 04 — B2B SaaS, Admin Dashboard</div>
+          <div class="wt-visual"><div class="grid-lines"></div></div>
+          <div class="wt-title">Enterprise POS Application</div>
+          <div class="wt-tags"><span>Billing &amp; Sales</span><span>Inventory</span><span>Warehouse Mgmt</span></div>
+        </a>
+        <a class="work-tile" href="projects/ecommerce-platform.html">
+          <div class="wt-index">04 / 04 — Omnichannel Commerce</div>
+          <div class="wt-visual"><div class="grid-lines"></div></div>
+          <div class="wt-title">E-Commerce Management Platform</div>
+          <div class="wt-tags"><span>Order Mgmt</span><span>Procurement</span><span>Shipping &amp; Logistics</span></div>
+        </a>
+      </div>
+      <div style="margin-top:36px;"><a href="projects.html" class="btn btn-outline" style="border-color:#2C2B24; color:var(--paper);">View all case studies →</a></div>
+    </div>
   </section>
 
   <!-- SKILLS -->
@@ -284,7 +321,7 @@
 
 <footer id="contact">
   <div class="wrap">
-    <div class="eyebrow" style="color:#8B896F;"><span class="dot"></span>Contact</div>
+    <div class="eyebrow" style="color:#8A8778;"><span class="dot"></span>Contact</div>
     <h2 class="foot-head">Let's design something <span class="accent-word">worth using.</span></h2>
     <p class="foot-sub">Open to UI/UX roles and freelance collaborations — reach out through any of the links below.</p>
     <div class="foot-links">
