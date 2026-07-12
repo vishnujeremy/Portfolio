@@ -493,3 +493,34 @@ h1.hero-h1 .accent-word{color:var(--accent);}
 .btn-solid:hover{background:var(--accent);}
 .btn-outline{border:1px solid var(--line); color:var(--ink);}
 .btn-outline:hover{border-color:var(--accent); color:var(--accent);}
+
+/* =======================================================
+   ANIMATION LAYER
+   ======================================================= */
+
+/* scroll reveals */
+.reveal{
+  opacity:0; translate:0 22px;
+  transition:opacity .6s cubic-bezier(.2,.6,.2,1), translate .6s cubic-bezier(.2,.6,.2,1);
+}
+.reveal.in-view{opacity:1; translate:0 0;}
+.reveal-delay-1{transition-delay:.08s;}
+.reveal-delay-2{transition-delay:.16s;}
+.reveal-delay-3{transition-delay:.24s;}
+@media (prefers-reduced-motion: reduce){
+  .reveal{transition:none; opacity:1; transform:none;}
+}
+
+/* card hover lift — unified across all card types */
+.process-card, .work-tile, .proj-card, .module-card, .exp-card, .about-facts{
+  transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.process-card:hover, .proj-card:hover, .module-card:hover{
+  transform:translateY(-4px); border-color:var(--accent);
+  box-shadow:0 14px 32px rgba(20,20,15,.08);
+}
+.work-tile:hover{box-shadow:0 14px 32px rgba(0,0,0,.35);}
+
+/* button / link arrow micro-interaction */
+.arrow{display:inline-block; transition:transform .22s ease;}
+.btn:hover .arrow, a:hover .arrow{transform:translateX(4px);}

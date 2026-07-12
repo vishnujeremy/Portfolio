@@ -46,7 +46,7 @@
     </p>
 
     <div class="projects-index-grid">
-      <a class="pcard" href="projects/field-force-management.html">
+      <a class="pcard reveal" href="projects/field-force-management.html">
         <div class="pcard-index">01 / 04</div>
         <div class="proj-tags">
           <span class="tag accent">B2B SaaS</span>
@@ -57,7 +57,7 @@
         <div class="proj-arrow">View case study →</div>
       </a>
 
-      <a class="pcard" href="projects/employee-monitoring.html">
+      <a class="pcard reveal reveal-delay-1" href="projects/employee-monitoring.html">
         <div class="pcard-index">02 / 04</div>
         <div class="proj-tags">
           <span class="tag accent">B2B SaaS</span>
@@ -68,7 +68,7 @@
         <div class="proj-arrow">View case study →</div>
       </a>
 
-      <a class="pcard" href="projects/pos-application.html">
+      <a class="pcard reveal reveal-delay-2" href="projects/pos-application.html">
         <div class="pcard-index">03 / 04</div>
         <div class="proj-tags">
           <span class="tag accent">B2B SaaS</span>
@@ -79,7 +79,7 @@
         <div class="proj-arrow">View case study →</div>
       </a>
 
-      <a class="pcard" href="projects/ecommerce-platform.html">
+      <a class="pcard reveal reveal-delay-3" href="projects/ecommerce-platform.html">
         <div class="pcard-index">04 / 04</div>
         <div class="proj-tags">
           <span class="tag accent">B2B SaaS</span>
@@ -111,19 +111,6 @@
   </div>
 </footer>
 
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const drawer = document.getElementById('mobileDrawer');
-  menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('open');
-    drawer.classList.toggle('open');
-    document.body.classList.toggle('nav-locked');
-  });
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menuBtn.classList.remove('open');
-    drawer.classList.remove('open');
-    document.body.classList.remove('nav-locked');
-  }));
-</script>
+<script src="assets/main.js"></script>
 </body>
 </html>

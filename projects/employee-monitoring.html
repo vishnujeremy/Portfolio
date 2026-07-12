@@ -45,7 +45,7 @@
     <h1 class="proj-h1">Employee Monitoring &amp; Workforce Productivity Platform</h1>
     <p class="proj-tagline">A centralized SaaS solution that lets organizations monitor employee activity, measure productivity, manage company assets, and turn workforce data into decisions — without burying users in complexity.</p>
 
-    <div class="meta-strip">
+    <div class="meta-strip reveal">
       <div><div class="m-k">Role</div><div class="m-v">UI/UX Designer — concept to hi-fi</div></div>
       <div><div class="m-k">Roles supported</div><div class="m-v">Super Admin, Company Admin, Manager, Employee</div></div>
       <div><div class="m-k">Type</div><div class="m-v">Enterprise B2B SaaS</div></div>
@@ -55,7 +55,7 @@
 
   <!-- OVERVIEW -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>Overview</div><h2 class="h-title">What it does</h2></div>
     </div>
     <div class="prose">
@@ -65,7 +65,7 @@
 
   <!-- MY ROLE -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>My role</div><h2 class="h-title">What I designed</h2></div>
     </div>
     <div class="prose">
@@ -75,12 +75,12 @@
 
   <!-- FEATURES -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>Modules</div><h2 class="h-title">What's inside</h2></div>
       <span class="h-note">9 module groups</span>
     </div>
     <div class="feature-grid">
-      <div class="feature-block">
+      <div class="feature-block reveal">
         <h3><span class="dot"></span>Employee Monitoring</h3>
         <div class="chips">
           <span class="module-chip">Real-time activity monitoring</span>
@@ -102,7 +102,7 @@
           <span class="module-chip">Dual monitor support</span>
         </div>
       </div>
-      <div class="feature-block">
+      <div class="feature-block reveal">
         <h3><span class="dot"></span>Productivity Management</h3>
         <div class="chips">
           <span class="module-chip">Productivity analytics dashboard</span>
@@ -115,7 +115,7 @@
           <span class="module-chip">Employee insights</span>
         </div>
       </div>
-      <div class="feature-block">
+      <div class="feature-block reveal">
         <h3><span class="dot"></span>Employee Management</h3>
         <div class="chips">
           <span class="module-chip">Employee profiles</span>
@@ -128,7 +128,7 @@
           <span class="module-chip">Performance insights</span>
         </div>
       </div>
-      <div class="feature-block">
+      <div class="feature-block reveal">
         <h3><span class="dot"></span>Device &amp; Computer Management</h3>
         <div class="chips">
           <span class="module-chip">Connected computer management</span>
@@ -138,7 +138,7 @@
           <span class="module-chip">Computer status monitoring</span>
         </div>
       </div>
-      <div class="feature-block">
+      <div class="feature-block reveal">
         <h3><span class="dot"></span>KPI &amp; Performance Management</h3>
         <div class="chips">
           <span class="module-chip">Organization / Dept / Team / Employee KPIs</span>
@@ -147,7 +147,7 @@
           <span class="module-chip">Productivity reports</span>
         </div>
       </div>
-      <div class="feature-block">
+      <div class="feature-block reveal">
         <h3><span class="dot"></span>Reports &amp; Analytics</h3>
         <div class="chips">
           <span class="module-chip">Automatic daily reports</span>
@@ -158,7 +158,7 @@
           <span class="module-chip">Exportable reports</span>
         </div>
       </div>
-      <div class="feature-block">
+      <div class="feature-block reveal">
         <h3><span class="dot"></span>Workforce Collaboration</h3>
         <div class="chips">
           <span class="module-chip">Meeting management</span>
@@ -169,7 +169,7 @@
           <span class="module-chip">Alerts &amp; notifications</span>
         </div>
       </div>
-      <div class="feature-block">
+      <div class="feature-block reveal">
         <h3><span class="dot"></span>Asset Management</h3>
         <div class="chips">
           <span class="module-chip">Asset inventory &amp; categories</span>
@@ -179,7 +179,7 @@
           <span class="module-chip">Department allocation</span>
         </div>
       </div>
-      <div class="feature-block">
+      <div class="feature-block reveal">
         <h3><span class="dot"></span>Administration</h3>
         <div class="chips">
           <span class="module-chip">Multi-company management</span>
@@ -196,10 +196,10 @@
 
   <!-- DESIGN HIGHLIGHTS -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>Design highlights</div><h2 class="h-title">How I approached it</h2></div>
     </div>
-    <div class="exp-card">
+    <div class="exp-card reveal">
       <ul class="bullets">
         <li>Designed using a <b>clean, minimal enterprise dashboard</b> approach rather than the dense, alert-heavy look typical of monitoring software.</li>
         <li>Built <b>reusable design system components</b> so the product could scale without visual drift as modules were added.</li>
@@ -213,7 +213,7 @@
 
   <!-- TOOLS -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>Tools used</div><h2 class="h-title">Built in</h2></div>
     </div>
     <div class="skill-pills">
@@ -248,19 +248,6 @@
   </div>
 </footer>
 
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const drawer = document.getElementById('mobileDrawer');
-  menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('open');
-    drawer.classList.toggle('open');
-    document.body.classList.toggle('nav-locked');
-  });
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menuBtn.classList.remove('open');
-    drawer.classList.remove('open');
-    document.body.classList.remove('nav-locked');
-  }));
-</script>
+<script src="../assets/main.js"></script>
 </body>
 </html>

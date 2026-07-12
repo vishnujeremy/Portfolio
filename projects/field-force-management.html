@@ -45,7 +45,7 @@
     <h1 class="proj-h1">Field Force Management Platform</h1>
     <p class="proj-tagline">A mobile-first platform that brings distributed field teams — sales agents, delivery staff, on-ground operations — onto one dashboard, replacing paper-based visit plans and untracked attendance with real-time visibility.</p>
 
-    <div class="meta-strip">
+    <div class="meta-strip reveal">
       <div><div class="m-k">Role</div><div class="m-v">UI/UX Designer — end to end</div></div>
       <div><div class="m-k">Industry fit</div><div class="m-v">FMCG, Pharma, Distribution, Retail</div></div>
       <div><div class="m-k">Scope</div><div class="m-v">19 modules, web &amp; mobile</div></div>
@@ -55,7 +55,7 @@
 
   <!-- OVERVIEW -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>Overview</div><h2 class="h-title">What it does</h2></div>
     </div>
     <div class="prose">
@@ -65,7 +65,7 @@
 
   <!-- PROBLEM -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>The problem</div><h2 class="h-title">Why it needed to exist</h2></div>
     </div>
     <div class="prose">
@@ -75,7 +75,7 @@
 
   <!-- MY ROLE -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>My role</div><h2 class="h-title">What I designed</h2></div>
     </div>
     <div class="prose">
@@ -85,11 +85,11 @@
 
   <!-- MODULES -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>Modules</div><h2 class="h-title">19 modules, one dashboard</h2></div>
       <span class="h-note">list view → detail view → create/edit → reports</span>
     </div>
-    <div class="module-grid">
+    <div class="module-grid reveal">
       <div class="module-card"><div class="mc-title">Dashboard</div><div class="mc-desc">Centralized overview of team activity, performance metrics, and pending actions across every module.</div></div>
       <div class="module-card"><div class="mc-title">Live Tracking</div><div class="mc-desc">Real-time location tracking and activity monitoring of field agents on an interactive map.</div></div>
       <div class="module-card"><div class="mc-title">Customer Management</div><div class="mc-desc">Complete customer database with add/edit flows, pending approval queues, and analytics.</div></div>
@@ -114,10 +114,10 @@
 
   <!-- DESIGN HIGHLIGHTS -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>Design highlights</div><h2 class="h-title">How it holds together</h2></div>
     </div>
-    <div class="exp-card">
+    <div class="exp-card reveal">
       <ul class="bullets">
         <li>Clean, <b>sidebar-first navigation</b> with a consistent orange-and-white design language applied across all 19 modules.</li>
         <li>Every module follows the same <b>repeatable pattern</b> — list view → detail view → create/edit form → reports — so the interface stays predictable as it grows.</li>
@@ -129,7 +129,7 @@
 
   <!-- TOOLS -->
   <section class="bordered wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <div><div class="eyebrow"><span class="dot"></span>Tools used</div><h2 class="h-title">Built in</h2></div>
     </div>
     <div class="skill-pills">
@@ -165,19 +165,6 @@
   </div>
 </footer>
 
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const drawer = document.getElementById('mobileDrawer');
-  menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('open');
-    drawer.classList.toggle('open');
-    document.body.classList.toggle('nav-locked');
-  });
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menuBtn.classList.remove('open');
-    drawer.classList.remove('open');
-    document.body.classList.remove('nav-locked');
-  }));
-</script>
+<script src="../assets/main.js"></script>
 </body>
 </html>
