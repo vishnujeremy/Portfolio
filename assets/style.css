@@ -145,7 +145,7 @@ h1.name em{font-style:normal; color:var(--ink-soft);}
 
 /* ---------- section shell ---------- */
 section{padding-top:64px; padding-bottom:64px;}
-section.bordered{border-top:1px solid var(--line); margin-top:64px; padding-top:88px;}
+section.bordered{border-top:1px solid var(--line); margin-top:64px; padding-top:88px; padding-bottom:72px;}
 .section-head{
   display:flex; align-items:baseline; justify-content:space-between;
   margin-bottom:48px; gap:24px; flex-wrap:wrap;
@@ -382,8 +382,9 @@ header.pill-nav{
 }
 header.pill-nav nav.wrap{
   max-width:var(--max); margin:0 auto; padding:0 20px 0 24px;
-  background:rgba(247,245,239,.92); backdrop-filter:blur(10px);
+  background:var(--white);
   border:1px solid var(--line); border-radius:100px;
+  box-shadow:0 6px 24px rgba(20,20,15,.08);
   height:60px;
 }
 header.pill-nav .navlinks{gap:26px;}
