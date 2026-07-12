@@ -7,10 +7,10 @@
   /* 30% — near-black ink, used for text + inverted sections */
   --ink: #14140F;
   --ink-soft: #57534A;
-  /* 10% — electric indigo: trust + technology, fits B2B SaaS positioning */
-  --accent: #3552FF;
-  --accent-soft: #E4E9FF;
-  --accent-dark: #263CC7;
+  /* 10% — violet: craft + tool-native (nods to Figma), distinctive without being loud */
+  --accent: #7C3AED;
+  --accent-soft: #EFE6FE;
+  --accent-dark: #5B21B6;
 
   --line: #DEDACD;
   --white: #FFFFFF;
